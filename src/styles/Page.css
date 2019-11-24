@@ -1,0 +1,9 @@
+.general {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formpage_submit_button {
+    margin: 10px;
+}
