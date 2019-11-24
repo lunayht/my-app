@@ -29,9 +29,13 @@ class FormPage extends React.Component{
                 <h1>
                     Hello, I'm Form Page.
                 </h1>
-                <h3>Please fill in your name.</h3>
+                <h3>
+                    Please fill in your name.
+                </h3>
                 <input value={this.state.input_name} onChange={this.handleChangeNameInput} type="text" name="name" />
-                <button className='formpage_submit_button' onClick={this.handleSubmitForm}>SUBMIT</button>
+                <button className='formpage_submit_button' onClick={this.handleSubmitForm}>
+                    SUBMIT
+                </button>
                 <h3>
                     This is my name: {this.state.input_name.toUpperCase()}
                 </h3>

@@ -20,8 +20,12 @@ class Header extends React.Component{
     render() {
         return(
             <div className='header'>
-                <button className='button' onClick={this.handleClickFormPage}>FORM PAGE</button>
-                <button className='button' onClick={this.handleClickDisplayPage}>DISPLAY PAGE</button>
+                <button className='button' onClick={this.handleClickFormPage}>
+                    FORM PAGE
+                </button>
+                <button className='button' onClick={this.handleClickDisplayPage}>
+                    DISPLAY PAGE
+                </button>
             </div>
         )
     }
