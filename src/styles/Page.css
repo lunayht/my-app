@@ -4,6 +4,11 @@
     align-items: center;
 }
 
-.formpage_submit_button {
+.formpage_buttons_div {
+    display: flex;
+    flex-direction: row;
+}
+
+.formpage_button {
     margin: 10px;
 }

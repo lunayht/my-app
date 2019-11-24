@@ -1,5 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import '../styles/Page.css';
+import * as crudAction from '../actions/crudAction';
 
 class FormPage extends React.Component{
     constructor(props) {
@@ -9,18 +12,25 @@ class FormPage extends React.Component{
         };
         this.handleChangeNameInput = this.handleChangeNameInput.bind(this);
         this.handleSubmitForm = this.handleSubmitForm.bind(this);
+        this.handleClear = this.handleClear.bind(this);
     }
 
     handleChangeNameInput(event) {
-        this.setState(
-            {
-                input_name: event.target.value
-            }
-        )
+        this.setState({
+            input_name: event.target.value
+        })
+        this.props.actions.dispatch_fill_in_action(event.target.value)
     }
 
     handleSubmitForm() {
         alert('My name is ' + this.state.input_name)
+    }
+
+    handleClear() {
+        this.props.actions.dispatch_clear_input_action()
+        this.setState({
+            input_name: ''
+        })
     }
 
     render() {
@@ -33,9 +43,14 @@ class FormPage extends React.Component{
                     Please fill in your name.
                 </h3>
                 <input value={this.state.input_name} onChange={this.handleChangeNameInput} type="text" name="name" />
-                <button className='formpage_submit_button' onClick={this.handleSubmitForm}>
-                    SUBMIT
-                </button>
+                <div className='formpage_buttons_div'>
+                    <button className='formpage_button' onClick={this.handleSubmitForm}>
+                        SUBMIT
+                    </button>
+                    <button className='formpage_button' onClick={this.handleClear}>
+                        CLEAR
+                    </button>
+                </div>
                 <h3>
                     This is my name: {this.state.input_name.toUpperCase()}
                 </h3>
@@ -44,4 +59,12 @@ class FormPage extends React.Component{
     }
 };
 
-export default FormPage;
+function mapStateToProps(state) {
+    return { state }
+};
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(Object.assign({}, crudAction), dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FormPage);
