@@ -59,12 +59,12 @@ class FormPage extends React.Component{
     }
 };
 
-function mapStateToProps(state) {
-    return { state }
-};
+// function mapStateToProps(state) {
+//     return { state }
+// };
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(Object.assign({}, crudAction), dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormPage);
+export default connect(null, mapDispatchToProps)(FormPage);
