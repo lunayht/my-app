@@ -27,10 +27,10 @@ class FormPage extends React.Component{
     }
 
     handleClear() {
-        this.props.actions.dispatch_clear_input_action()
         this.setState({
             input_name: ''
         })
+        this.props.actions.dispatch_clear_input_action()
     }
 
     render() {
